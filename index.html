@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sergio Albacete</title>
+<meta name="description" content="Sergio Albacete, ecotoxicologist at the University of Bologna working on the sublethal effects of pesticides on wild bees and pollinator risk assessment.">
+<link rel="canonical" href="https://sergioalbacete.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sergio Albacete">
+<meta property="og:description" content="Ecotoxicologist at the University of Bologna. Sublethal effects of pesticides on wild bees and pollinator risk assessment.">
+<meta property="og:image" content="https://sergioalbacete.github.io/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://sergioalbacete.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400&family=Courier+Prime:wght@400;700&display=swap">
+<style>
+/* Layout: the page is a field season. Rapeseed-yellow opening that dissolves into the photo, a dark "inside the nest" band,
+   studio-white methods where the lab photos melt into the page, a collection drawer of pinned specimen labels for papers.
+   Deliberately one look (no dark variant): every colour is set explicitly. */
+:root{
+  --ink:#15130D; --ink-soft:#3A3722;
+  --field-1:#D4C31C; --field-2:#AEA425;
+  --white:#FCFDFD; --drawer:#ECEBE3; --label:#FFFFFF;
+  --nest:#16120D; --nest-ink:#EFEBE1; --nest-muted:#A9A190;
+  --rust:#B9481A; --rust-hi:#EF7C3F; --reed:#D6C196; --mud:#8C6B47;
+  --muted:#5C5B51; --stone:#E6E2D8; --rule:rgba(21,19,13,.16);
+  --display:"Gloock", "Bodoni 72", Didot, Georgia, serif;
+  --body:"Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --tag:"Courier Prime", "Courier New", Courier, monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+[hidden]{display:none!important}
+body{background:var(--white);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.6}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration-thickness:1.5px;text-underline-offset:3px}
+a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+figure{margin:0}
+section,.hero{overflow-x:clip}
+.wrap{max-width:1200px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h2{font-size:clamp(2.2rem,5.4vw,4rem);line-height:1}
+
+.credit{position:absolute;right:8px;bottom:8px;z-index:2;pointer-events:none;font-family:var(--tag);font-size:.64rem;line-height:1.3;letter-spacing:.02em;color:#FFFFFF;background:rgba(21,19,13,.48);padding:2px 6px;max-width:calc(100% - 16px)}
+.credit.below{position:absolute;left:0;right:0;bottom:-26px;margin:auto;width:max-content;max-width:none;white-space:nowrap;background:none;color:var(--ink-soft)}
+.hero .photo .credit{bottom:12px;right:max(12px, env(safe-area-inset-right, 0px))}
+/* specimen label: the recurring device */
+.spec{display:inline-block;background:var(--label);color:var(--ink);border:1px solid var(--ink);font-family:var(--tag);font-size:.74rem;line-height:1.35;padding:6px 9px 7px;max-width:240px}
+.spec i{font-style:italic}
+
+/* ---------- hero: the field ---------- */
+.hero{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--field-1),var(--field-2));min-height:640px}
+.hero .photo{position:absolute;top:0;right:0;bottom:0;width:64%}
+.hero .photo img{width:100%;height:100%;object-fit:cover;object-position:42% 50%;
+  -webkit-mask-image:linear-gradient(to right,transparent 0%,#000 34%);mask-image:linear-gradient(to right,transparent 0%,#000 34%)}
+.hero .wrap{position:relative;z-index:1;display:flex;flex-direction:column;min-height:640px;padding-block:22px 48px}
+.nav{display:flex;flex-wrap:wrap;gap:6px 22px;font-weight:500;font-size:.95rem}
+.nav a{text-decoration:none}
+.nav a:hover{text-decoration:underline}
+.nav .home{margin-right:auto;font-family:var(--display);font-size:1.15rem}
+.hero-text{margin-top:auto}
+.hero h1{font-size:clamp(3.4rem,11.5vw,9.6rem);line-height:.86;letter-spacing:-.035em}
+.hero h1 span{display:block}
+.hero .lede{font-size:clamp(1.1rem,2vw,1.35rem);line-height:1.45;max-width:30ch;margin:26px 0 0;color:var(--ink-soft)}
+.hero .lede b{color:var(--ink);font-weight:600}
+.hero .spec{position:absolute;right:max(16px, env(safe-area-inset-right, 0px));bottom:28px;z-index:1}
+
+/* ---------- statement + about ---------- */
+.statement{padding-block:96px 88px}
+.statement .grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:56px;align-items:center}
+.statement h2{font-size:clamp(2rem,4.4vw,3.5rem);line-height:1.06}
+.statement h2 em{font-style:normal;color:var(--rust)}
+.statement .say{display:grid;gap:28px}
+.statement .say p{margin:0;max-width:52ch;font-size:1.08rem;color:var(--ink-soft)}
+.statement figure{position:relative}
+.statement figure img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:52% 50%}
+.statement figure .spec{position:absolute;left:-14px;bottom:18px}
+
+/* ---------- research: inside the nest ---------- */
+.nest{background:var(--nest);color:var(--nest-ink);padding-block:96px}
+.nest h2{color:var(--nest-ink);max-width:14ch}
+.nest .intro{color:var(--nest-muted);max-width:52ch;margin:20px 0 64px;font-size:1.1rem}
+.row{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:48px;align-items:center}
+.row + .row{margin-top:80px}
+.row.flip{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
+.row.flip figure{order:2}
+.row figure{position:relative}
+.row figure img{width:100%;aspect-ratio:3/2;object-fit:cover}
+.row figure .spec{position:absolute;right:-12px;bottom:-16px}
+.row.flip figure .spec{right:auto;left:-12px}
+.row h3{font-size:clamp(1.7rem,3vw,2.5rem);line-height:1.05;margin-bottom:16px}
+.row p{margin:0 0 14px;max-width:46ch}
+.row .ref{font-size:.92rem;color:var(--nest-muted)}
+.row .ref a{color:var(--rust-hi)}
+
+/* ---------- methods: studio white ---------- */
+.methods{padding-block:96px 80px;background:var(--stone)}
+.methods .head{display:grid;gap:32px;margin-bottom:48px}
+.methods .head h2{max-width:16ch}
+.methods .head p{margin:0;max-width:48ch;color:var(--ink-soft)}
+.reasons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px 40px;padding-top:24px;border-top:1px solid var(--rule)}
+.methods .lead-in{font-size:1.1rem;color:var(--ink)}
+.reasons b{color:var(--ink);font-weight:600}
+.mgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}
+.method{display:flex;flex-direction:column;gap:10px;min-width:0}
+.method .pic{position:relative;aspect-ratio:1/1;background:var(--label);padding:10px;box-shadow:0 1px 0 rgba(21,19,13,.10),0 14px 28px -18px rgba(21,19,13,.55)}
+.method .pic img{width:100%;height:100%;object-fit:cover;display:block}
+.method .pic .credit{right:16px;bottom:16px}
+.photo-swap .v-photo{object-position:4% 50%}
+.method .pic.photo-swap .v-setup{object-fit:contain;background:var(--label);padding:4px}
+.swap{display:flex;align-self:flex-start;border:1px solid var(--ink)}
+.swap button{background:transparent;color:var(--ink);padding:5px 12px}
+.swap button[aria-pressed="true"]{background:var(--ink);color:var(--field-1)}
+.swap button:hover{background:var(--rust);color:var(--white)}
+.method h3{font-size:1.75rem;line-height:1.1}
+.method p{margin:0;color:var(--ink-soft);max-width:40ch}
+.method .ref{font-size:.9rem}
+.method .ref a{color:var(--rust)}
+.stamp{align-self:flex-start;font-family:var(--tag);font-weight:700;font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;color:var(--rust);border:2px solid var(--rust);padding:3px 8px;transform:rotate(-2deg)}
+
+/* ---------- field mosaic ---------- */
+.mosaic{display:grid;grid-template-columns:1.3fr .75fr 1.2fr;grid-template-rows:480px;gap:4px;background:var(--white)}
+.mosaic figure{position:relative;overflow:hidden;background:var(--nest)}
+.mosaic img{width:100%;height:100%;object-fit:cover}
+.mosaic .spec{position:absolute;left:12px;bottom:12px}
+
+/* ---------- path: the opened nest ---------- */
+.path{padding-block:96px 88px}
+.path .top{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:center;margin-bottom:56px}
+.path .top p{margin:16px 0 0;color:var(--muted);max-width:44ch}
+.path .top figure{position:relative}
+.path .top figure img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:45% 50%}
+.tubewrap{overflow-x:auto;padding-bottom:10px}
+.tube{display:flex;min-width:980px;background:var(--reed);border:2px solid var(--mud);border-radius:44px 10px 10px 44px;padding:12px 0 12px 22px}
+.cell{flex:1 1 0;padding:14px 16px 16px;border-right:6px solid var(--mud);display:flex;flex-direction:column;gap:6px;min-width:0}
+.cell .ball{width:22px;height:18px;border-radius:50% 45% 50% 45%;background:var(--field-1);box-shadow:inset -3px -3px 0 rgba(140,107,71,.45)}
+.cell.now .ball{background:var(--rust)}
+.cell .when{font-family:var(--tag);font-size:.8rem;color:var(--ink-soft)}
+.cell .where{font-family:var(--display);font-size:1.15rem;line-height:1.1}
+.cell .what{font-size:.86rem;line-height:1.4;color:var(--ink-soft)}
+.plug{flex:0 0 30px;background:var(--mud);border-radius:0 6px 6px 0;margin:-12px 0}
+.tubelegend{display:flex;justify-content:space-between;min-width:980px;padding:10px 6px 0;font-family:var(--tag);font-size:.76rem;color:var(--muted)}
+
+/* ---------- collection drawer: publications ---------- */
+.drawer{background:var(--drawer);padding-block:96px;border-top:10px solid var(--mud);border-bottom:10px solid var(--mud)}
+.drawer .head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px 40px;margin-bottom:48px}
+.drawer .head p{margin:0;color:var(--muted);max-width:40ch}
+.labels{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:28px 24px}
+.lab{position:relative;background:var(--label);border:1px solid var(--ink);padding:22px 18px 16px;display:flex;flex-direction:column;gap:8px}
+.lab::before{content:"";position:absolute;top:-5px;left:50%;width:9px;height:9px;margin-left:-4.5px;border-radius:50%;background:var(--ink);box-shadow:0 0 0 2px var(--drawer)}
+.lab .loc{font-family:var(--tag);font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:.03em;display:flex;justify-content:space-between;gap:8px}
+.lab .t{font-weight:600;line-height:1.35;margin:0}
+.lab .a{font-family:var(--tag);font-size:.78rem;line-height:1.4;color:var(--ink-soft);margin:0}
+.lab .a b{color:var(--ink)}
+.lab .doi{font-family:var(--tag);font-size:.74rem;overflow-wrap:anywhere;margin-top:auto;color:var(--muted)}
+.lab.feat{border:2px solid var(--rust)}
+.lab.pre{border-style:dashed}
+.lab.pre .note{font-family:var(--tag);font-size:.76rem;color:var(--muted)}
+.lab.feat .note{font-family:var(--tag);font-size:.76rem;color:var(--rust);font-weight:700}
+.more{margin-top:40px;display:flex;flex-wrap:wrap;gap:8px 28px;font-weight:500}
+
+/* ---------- projects & talks ---------- */
+.work{padding-block:96px}
+.bloom{--blossom:#F6E5E3;--bb:#1E4A7F;background:var(--blossom);display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:36px 56px;align-items:stretch;padding-block:48px 40px;padding-inline:clamp(20px,4vw,56px);margin-bottom:96px}
+.bloom > *{min-width:0}
+.bloom-main{display:flex;flex-direction:column;gap:18px}
+.bloom-mark{width:clamp(110px,14vw,150px);height:auto}
+.bloom h2{font-size:clamp(2.8rem,6.4vw,5rem);line-height:.92;color:var(--bb)}
+.bloom-lede{margin:0;font-size:1.12rem;max-width:50ch;color:var(--ink-soft)}
+.aims{list-style:none;counter-reset:aim;padding:0;margin:14px 0 0;display:grid;gap:20px}
+.aims li{counter-increment:aim;display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;color:var(--ink-soft);max-width:56ch}
+.aims li::before{content:counter(aim);font-family:var(--display);font-size:2.3rem;line-height:.9;color:var(--bb)}
+.aims b{display:block;color:var(--ink);font-weight:600;margin-bottom:2px}
+.bloom-photo{position:relative;min-height:440px}
+.bloom-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 45%}
+.bloom-photo .spec{position:absolute;left:-12px;bottom:18px}
+.bloom-meta{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px;padding-top:24px;border-top:1px solid var(--rule)}
+.bloom-meta .fund-line{font-family:var(--tag);font-size:.82rem;color:var(--ink-soft);max-width:44ch}
+.bloom-meta a{font-weight:600;color:var(--bb)}
+.work .grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:64px}
+.work h2{margin-bottom:32px}
+.proj{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 20px;padding-block:18px;border-top:1px solid var(--rule)}
+.proj h3{font-size:1.65rem;line-height:1.1}
+.proj .role{font-family:var(--tag);font-size:.8rem;color:var(--rust);align-self:center;text-align:right}
+.proj p{grid-column:1/-1;margin:4px 0 0;color:var(--ink-soft);max-width:58ch}
+.proj .fund{grid-column:1/-1;font-family:var(--tag);font-size:.78rem;color:var(--muted)}
+.side h3{font-size:1.4rem;margin:0 0 12px}
+.side + .side{margin-top:40px}
+.students{margin-top:56px}
+.pair{display:grid;gap:6px;margin-top:48px}
+.pair figure{position:relative}
+.pair img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.list{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.list li{font-size:.97rem;line-height:1.45;padding-top:12px;border-top:1px solid var(--rule)}
+.side .sub{font-family:var(--tag);font-size:.76rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:22px 0 10px}
+.side h3 + .sub{margin-top:0}
+.list small{display:block;font-family:var(--tag);font-size:.76rem;color:var(--muted);margin-top:3px}
+
+/* ---------- contact: back to the field ---------- */
+.contact{background:linear-gradient(180deg,var(--field-2),var(--field-1));padding-block:96px 40px}
+.contact .grid{display:grid;grid-template-columns:auto minmax(0,1fr);gap:56px;align-items:center}
+.hole{position:relative;width:clamp(180px,24vw,280px);aspect-ratio:1/1;border-radius:50%;padding:18px;background:repeating-radial-gradient(circle,var(--reed) 0 3px,#C8B184 3px 5px);box-shadow:0 0 0 2px var(--mud)}
+.hole img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:50% 30%}
+.contact h2{font-size:clamp(2.6rem,7vw,5.4rem);line-height:.92}
+.email{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:26px}
+.email code{font-family:var(--body);font-weight:600;font-size:clamp(1.05rem,2.6vw,1.45rem);overflow-wrap:anywhere;user-select:all}
+button{font-family:var(--tag);font-weight:700;font-size:.78rem;text-transform:uppercase;background:var(--ink);color:var(--field-1);border:0;padding:8px 14px;cursor:pointer}
+button:hover{background:var(--rust);color:var(--white)}
+.contact .addr{margin:14px 0 0;color:var(--ink-soft)}
+.links{display:flex;flex-wrap:wrap;gap:8px 26px;margin-top:20px;font-weight:600}
+footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;margin-top:72px;padding-top:18px;border-top:1px solid var(--rule);font-family:var(--tag);font-size:.78rem;color:var(--ink-soft)}
+
+/* ---------- responsive ---------- */
+@media (max-width:900px){
+  .hero{min-height:0;display:flex;flex-direction:column}
+  .hero .photo{order:2}
+  .hero .wrap{order:1}
+  .hero .wrap{min-height:0;padding-block:20px 0}
+  .hero-text{margin-top:48px}
+  .hero .photo{position:relative;width:100%;height:380px;margin-top:-40px}
+  .hero .photo img{object-position:46% 50%;-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 30%);mask-image:linear-gradient(to bottom,transparent 0%,#000 30%)}
+  .statement .grid,.row,.row.flip,.methods .head,.path .top,.work .grid{grid-template-columns:1fr;gap:32px}
+  .row.flip figure{order:0}
+  .bloom{grid-template-columns:1fr;margin-bottom:64px}
+  .bloom-photo{min-height:0;aspect-ratio:4/5;max-width:480px}
+  .bloom-photo .spec{left:8px}
+  .statement figure{max-width:440px}
+  .mgrid{grid-template-columns:1fr 1fr}
+  .reasons{grid-template-columns:1fr}
+  .mosaic{grid-template-columns:1fr 1fr;grid-template-rows:320px 300px}
+  .mosaic figure:first-child{grid-column:1/-1}
+}
+@media (max-width:600px){
+  .statement,.nest,.methods,.path,.drawer,.work{padding-block:64px}
+  .contact{padding-block:64px 32px}
+  .mgrid{grid-template-columns:1fr}
+  .mosaic{grid-template-columns:1fr;grid-template-rows:280px 380px 260px}
+  .contact .grid{grid-template-columns:1fr;gap:56px}
+  .row figure .spec,.statement figure .spec{right:8px;left:auto;bottom:-14px}
+  .row.flip figure .spec{left:auto;right:8px}
+  .hero .spec{display:none}
+  .proj{grid-template-columns:1fr}
+  .proj .role{text-align:left}
+}
+@media (prefers-reduced-motion:no-preference){
+  .lab{transition:transform .2s ease}
+  .lab:hover{transform:translateY(-3px) rotate(-.4deg)}
+}
+</style>
+</head>
+<body>
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="photo"><img src="img/rape-tag15.jpg" alt="A mason bee with a black head and thorax, orange abdomen and a white numbered tag, foraging on oilseed rape flowers"><span class="credit">© Sergio Albacete</span></div>
+  <div class="wrap">
+    <nav class="nav" aria-label="Sections">
+      <a class="home" href="#top">S. Albacete</a>
+      <a href="#research">Research</a>
+      <a href="#methods">Methods</a>
+      <a href="#papers">Papers</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="hero-text">
+      <h1><span>Sergio</span><span>Albacete</span></h1>
+      <p class="lede">Ecotoxicologist at the University of Bologna. I study <b>the sublethal effects of pesticides on wild bees</b>, alone and combined with other stressors such as climate warming, and develop methods to assess them.</p>
+    </div>
+  </div>
+</header>
+
+<!-- STATEMENT / ABOUT -->
+<section class="statement" id="about">
+  <div class="wrap grid">
+    <div class="say">
+      <h2>Pesticide risk assessment was built around the honey bee. I work on <em>the bees it leaves out.</em></h2>
+      <p>Pesticide risk assessment uses the honey bee as a surrogate for all bees. However, solitary bees, bumblebees and other wild pollinators differ from honey bees in life history, sensitivity and routes of exposure, so honey bee-based assessments may not protect them. I did my PhD at CREAF on the sublethal effects of pesticides on the solitary bee <i>Osmia cornuta</i>, and I am now a postdoc at the University of Bologna working on wild pollinator risk assessment.</p>
+    </div>
+    <figure>
+      <img src="img/apple.jpg" alt="Osmia cornuta female dusted in pollen on a pale pink apple blossom" loading="lazy"><span class="credit">© Sergio Albacete</span>
+    </figure>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section class="nest" id="research">
+  <div class="wrap">
+    <h2>Inside the nest, and out in the field</h2>
+    <p class="intro">I combine laboratory, semi-field and field studies to link sublethal effects on individual bees with their consequences for reproductive success and population growth.</p>
+
+    <div class="row">
+      <figure>
+        <img src="img/nestblock.jpg" alt="Two individually marked Osmia females flying to the holes of a wooden nesting block" loading="lazy" style="aspect-ratio:3/2;object-position:40% 55%"><span class="credit">© Sergio Albacete</span>
+      </figure>
+      <div>
+        <h3>From one bee to a population</h3>
+        <p>In oilseed rape field cages, I follow individually marked <i>Osmia cornuta</i> females throughout the nesting period. Field-realistic levels of an insecticide–fungicide mixture, but not of either compound alone, impaired nest recognition, shortened the nesting period and reduced fecundity. Population growth rates fell from 1.3–1.7 to 0.5–0.6, turning growth into decline.</p>
+        <p class="ref"><a href="https://doi.org/10.1016/j.envint.2024.108919">Environment International 2024</a> · <a href="https://doi.org/10.1016/j.envpol.2024.125223">Environmental Pollution 2024</a></p>
+      </div>
+    </div>
+
+    <div class="row flip">
+      <figure>
+        <img src="img/tube-macro.jpg" alt="Open ends of bamboo nesting tubes, most sealed with mud, one with a pollen-dusted bee looking out" loading="lazy"><span class="credit">© Galdric Mossoll / CREAF</span>
+      </figure>
+      <div>
+        <h3>Warm winters, sensitive bees</h3>
+        <p><i>Osmia</i> overwinter as adults inside their cocoons, without access to food until spring. Warm wintering temperatures deplete the fat body, the main tissue involved in pesticide detoxification. Females wintered under projected 2051–2080 temperatures and then exposed to a sublethal insecticide dose showed a 70% decrease in longevity. With Fabrice Requier (Paris-Saclay) I have scaled these effects up to the population level with agent-based models (under revision in <i>Environmental Science &amp; Technology</i>).</p>
+        <p class="ref"><a href="https://doi.org/10.1111/gcb.16928">Global Change Biology 2023</a> · featured in <a href="https://www.nature.com/articles/s41558-023-01841-y"><i>Nature Climate Change</i></a></p>
+      </div>
+    </div>
+
+    <div class="row">
+      <figure>
+        <img src="img/rape-tag87.jpg" alt="An Osmia bee with a green numbered tag visiting a yellow oilseed rape flower" loading="lazy"><span class="credit">© Sergio Albacete</span>
+      </figure>
+      <div>
+        <h3>Risk assessment beyond the honey bee</h3>
+        <p>At Bologna I generate trait-based toxicity data for different pollinator groups, so that risk assessment can account for differences in sensitivity among species. I also estimate pollen and nectar consumption in bumblebees and solitary bees, needed to translate residue levels into actual oral exposure. Along the same line, I have traced how fungicide residues move from the spray tank to flowers, pollen, nectar and larval provisions.</p>
+        <p class="ref">PollinERA · PollinEat (EFSA) · <a href="https://doi.org/10.1016/j.envpol.2026.129357">Environmental Pollution 2026</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METHODS -->
+<section class="methods" id="methods">
+  <div class="wrap">
+    <div class="head">
+      <h2>Why solitary bees need their own tests</h2>
+      <div class="reasons">
+        <p><b>They do not recognise artificial feeders.</b> <i>Osmia</i> spp. do not readily feed from the artificial feeders used in honey bee tests, so ingestion of the dose is not guaranteed.</p>
+        <p><b>They do not share food.</b> Honey bee workers exchange food by trophallaxis, so in group tests the dose is spread among individuals. Solitary bees do not, so each bee has to be dosed individually.</p>
+        <p><b>Few tools for sublethal effects.</b> Standard tests focus on mortality, and the few laboratory methods available to assess sublethal effects were designed for <i>Apis mellifera</i>.</p>
+      </div>
+      <p class="lead-in">These are the methods I have helped develop to address these gaps.</p>
+    </div>
+    <div class="mgrid">
+      <article class="method">
+        <div class="pic"><img src="img/petal2.jpg" alt="An Osmia female on a green sponge block, drinking the feeding solution from the base of an upright yellow flower petal" loading="lazy" style="object-position:50% 45%"><span class="credit">© Sergio Albacete</span></div>
+        <h3>The petal method</h3>
+        <p>The feeding solution is offered with a flower petal, which bees readily recognise as a food source. Each bee ingests a known dose.</p>
+        <p class="ref"><a href="https://doi.org/10.1016/j.ecoenv.2023.115398">Ecotoxicology &amp; Environmental Safety 2023</a></p>
+      </article>
+      <article class="method">
+        <div class="pic"><img src="img/chronic.jpg" alt="An Osmia bee standing on a yellow petal attached to the tip of a feeding syringe" loading="lazy" style="object-position:36% 50%"><span class="credit">© Galdric Mossoll / CREAF</span></div>
+        <h3>Chronic oral exposure</h3>
+        <p>A protocol to expose adult solitary bees over several days, closer to field conditions than a single acute dose. Ring-tested in more than 20 laboratories.</p>
+        <span class="stamp">Submitted to the OECD</span>
+        <p class="ref"><a href="https://doi.org/10.1016/j.envpol.2024.125129">Environmental Pollution 2024</a></p>
+      </article>
+      <article class="method">
+        <div class="pic photo-swap">
+          <img class="v-photo" src="img/phototaxis.jpg" alt="Seen from above, an Osmia bee walking across grey paper inside a pool of warm light, heading toward the lamp at the left edge" loading="lazy">
+          <img class="v-setup" src="img/phototaxis-setup.png" alt="Diagram of the setup: a dark 50 by 50 by 70 centimetre arena with an infrared camera on top, a light at one side and the bee's start area on the opposite side" loading="lazy" hidden>
+          <span class="credit v-photo">© Sergio Albacete</span>
+          <span class="credit v-setup" hidden>Sancho et al. 2025, <i>Sci. Rep.</i> · CC BY 4.0</span>
+        </div>
+        <div class="swap" role="group" aria-label="Phototaxis image">
+          <button type="button" id="swap-photo" aria-pressed="true">Photo</button>
+          <button type="button" id="swap-setup" aria-pressed="false">Setup</button>
+        </div>
+        <h3>Phototaxis assay</h3>
+        <p>A bee is released in a dark 50 × 50 cm arena, opposite a light, and filmed from above with an infrared camera. Unexposed bees walk towards the light. The main endpoint is whether the bee reaches it within a set time, usually one minute. Walking speed and trajectory can also be recorded.</p>
+        <p>Validated in <i>Osmia</i> spp., <i>Apis mellifera</i>, <i>Megachile rotundata</i> and other species.</p>
+        <p class="ref"><a href="https://doi.org/10.1038/s41598-025-05400-7">Scientific Reports 2025</a></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FIELD -->
+<div class="mosaic" aria-label="Field work">
+  <figure><img src="img/cages.jpg" alt="White mesh field cages over a flowering oilseed rape field at dusk" loading="lazy"><span class="credit">© Sergio Albacete</span></figure>
+  <figure><img src="img/spraying.jpg" alt="Sergio in a protective suit and respirator filling a backpack sprayer beside a field cage" loading="lazy" style="object-position:50% 40%"><span class="credit">© Sergio Albacete</span></figure>
+  <figure><img src="img/field-duo.jpg" alt="Sergio and a colleague inspecting a bundle of reed nesting tubes in a mountain meadow" loading="lazy" style="object-position:60% 50%"><span class="credit">© Galdric Mossoll / CREAF</span></figure>
+</div>
+
+<!-- PATH -->
+<section class="path" id="path">
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <h2>How I got here</h2>
+        <p>An <i>Osmia</i> female builds her nest as a linear series of cells, each with a pollen-nectar provision and an egg, separated by mud partitions. The oldest cell is at the back, the newest by the entrance. Here is mine.</p>
+      </div>
+      <figure><img src="img/nest-open.jpg" alt="Hands holding a reed split lengthwise, showing nest cells with yellow pollen provisions, small white eggs and brown mud partitions" loading="lazy"><span class="credit">© Galdric Mossoll / CREAF</span></figure>
+    </div>
+    <div class="tubewrap" role="region" aria-label="Career timeline, scrolls sideways on small screens" tabindex="0">
+      <div class="tube">
+        <div class="cell"><span class="ball"></span><span class="when">2017</span><span class="where">IPE-CSIC</span><span class="what">Bachelor's research on interaction networks of threatened plants</span></div>
+        <div class="cell"><span class="ball"></span><span class="when">2018</span><span class="where">University of Barcelona</span><span class="what">MSc in Biodiversity: arthropods of riparian and forest ecosystems</span></div>
+        <div class="cell"><span class="ball"></span><span class="when">2019</span><span class="where">EDAFO GM</span><span class="what">Environmental consultant</span></div>
+        <div class="cell"><span class="ball"></span><span class="when">2020–24</span><span class="where">CREAF · UAB</span><span class="what">PhD in Terrestrial Ecology with Jordi Bosch and Anselm Rodrigo</span></div>
+        <div class="cell"><span class="ball"></span><span class="when">2024</span><span class="where">Paris-Saclay</span><span class="what">Research stay: agent-based population models</span></div>
+        <div class="cell now"><span class="ball"></span><span class="when">2025–</span><span class="where">Univ. of Bologna</span><span class="what">Postdoc on risk assessment for wild pollinators</span></div>
+        <div class="plug" aria-hidden="true"></div>
+      </div>
+      <div class="tubelegend" aria-hidden="true"><span>← back of the nest</span><span>entrance plug →</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section class="drawer" id="papers">
+  <div class="wrap">
+    <div class="head">
+      <h2>From the collection</h2>
+      <p>The full list is on <a href="https://scholar.google.es/citations?user=G5mxJu8AAAAJ&amp;hl=en">Google Scholar</a>.</p>
+    </div>
+    <ol class="labels">
+      <li class="lab">
+        <span class="loc"><span>Environ. Pollut.</span><span>2026</span></span>
+        <p class="t">From the spray tank to the bee nest: translocation and persistence of fungicide residues in <i>Osmia cornuta</i> food provisions</p>
+        <p class="a"><b>Albacete S</b>, Azpiazu C, Sancho G, García-Gómez A, Sgolastra F, Rodrigo A, Bosch J</p>
+        <a class="doi" href="https://doi.org/10.1016/j.envpol.2026.129357">doi:10.1016/j.envpol.2026.129357</a>
+      </li>
+      <li class="lab feat">
+        <span class="loc"><span>Glob. Change Biol.</span><span>2023</span></span>
+        <p class="t">Bees exposed to climate change are more sensitive to pesticides</p>
+        <p class="a"><b>Albacete S</b>, Sancho G, Azpiazu C, Rodrigo A, Molowny-Horas R, Sgolastra F, Bosch J</p>
+        <a class="note" href="https://www.nature.com/articles/s41558-023-01841-y">Research Highlight in Nature Climate Change: “Warming worsens insecticide impacts”</a>
+        <a class="doi" href="https://doi.org/10.1111/gcb.16928">doi:10.1111/gcb.16928</a>
+      </li>
+      <li class="lab">
+        <span class="loc"><span>Environ. Int.</span><span>2024</span></span>
+        <p class="t">Sublethal insecticide-fungicide mixtures affect reproductive success and population growth in <i>Osmia cornuta</i></p>
+        <p class="a"><b>Albacete S</b>, Sancho G, Azpiazu C, Rodrigo A, Sgolastra F, Bosch J</p>
+        <a class="doi" href="https://doi.org/10.1016/j.envint.2024.108919">doi:10.1016/j.envint.2024.108919</a>
+      </li>
+      <li class="lab">
+        <span class="loc"><span>Environ. Pollut.</span><span>2024</span></span>
+        <p class="t">Sublethal fungicide-insecticide co-exposure affects nest recognition and parental investment in a solitary bee</p>
+        <p class="a"><b>Albacete S</b>, Azpiazu C, Sancho G, Barnadas M, Alins G, Sgolastra F, Rodrigo A, Bosch J</p>
+        <a class="doi" href="https://doi.org/10.1016/j.envpol.2024.125223">doi:10.1016/j.envpol.2024.125223</a>
+      </li>
+      <li class="lab">
+        <span class="loc"><span>Sci. Rep.</span><span>2025</span></span>
+        <p class="t">A phototaxis assay to measure sublethal effects of pesticides on bees</p>
+        <p class="a">Sancho G, <b>Albacete S</b>, Azpiazu C, Sgolastra F, Rodrigo A, Bosch J</p>
+        <a class="doi" href="https://doi.org/10.1038/s41598-025-05400-7">doi:10.1038/s41598-025-05400-7</a>
+      </li>
+      <li class="lab">
+        <span class="loc"><span>Proc. R. Soc. B</span><span>2025</span></span>
+        <p class="t">Co-exposure to a honeybee pathogen and an insecticide: synergistic effects in a new solitary bee host but not in <i>Apis mellifera</i></p>
+        <p class="a">Tadei R, Cilia G, Mathias da Silva EC, Sancho G, <b>Albacete S</b>, … Sgolastra F</p>
+        <a class="doi" href="https://doi.org/10.1098/rspb.2024.2809">doi:10.1098/rspb.2024.2809</a>
+      </li>
+      <li class="lab">
+        <span class="loc"><span>Perspect. Plant Ecol.</span><span>2026</span></span>
+        <p class="t">Rare plants sustain communities of visitors with similar diversity but different composition across populations of different size</p>
+        <p class="a">Miranda-Cebrián H, Cáliz J, Olesen JM, González Megías A, <b>Albacete S</b>, … García MB</p>
+        <a class="doi" href="https://doi.org/10.1016/j.ppees.2026.125930">doi:10.1016/j.ppees.2026.125930</a>
+      </li>
+      <li class="lab">
+        <span class="loc"><span>Environ. Pollut.</span><span>2024</span></span>
+        <p class="t">Chronic oral toxicity protocol for adult solitary bees (<i>Osmia bicornis</i>)</p>
+        <p class="a">Azpiazu C, Sgolastra F, Ippolito A, <b>Albacete S</b>, … Bosch J</p>
+        <a class="doi" href="https://doi.org/10.1016/j.envpol.2024.125129">doi:10.1016/j.envpol.2024.125129</a>
+      </li>
+      <li class="lab">
+        <span class="loc"><span>Ecotox. Environ. Saf.</span><span>2023</span></span>
+        <p class="t">An improved method to feed solitary bees (<i>Osmia</i> spp.) known amounts of pesticides</p>
+        <p class="a">Azpiazu C, Hinarejos S, Sancho G, <b>Albacete S</b>, … Bosch J</p>
+        <a class="doi" href="https://doi.org/10.1016/j.ecoenv.2023.115398">doi:10.1016/j.ecoenv.2023.115398</a>
+      </li>
+      <li class="lab">
+        <span class="loc"><span>Ecol. Inform.</span><span>2026</span></span>
+        <p class="t">MetaBeeAI: an AI pipeline for structured evidence extraction from biological literature</p>
+        <p class="a">Parkinson RH, Cerbone H, Mieskolainen M, Cao S, Wilson AD, <b>Albacete S</b>, … Roberts S</p>
+        <a class="doi" href="https://doi.org/10.1016/j.ecoinf.2026.103813">doi:10.1016/j.ecoinf.2026.103813</a>
+      </li>
+      <li class="lab">
+        <span class="loc"><span>J. Hymenopt. Res.</span><span>2024</span></span>
+        <p class="t">Use of a novel nesting material by the spider wasp <i>Dipogon variegatus</i></p>
+        <p class="a"><b>Albacete S</b>, Sancho G, Bosch J</p>
+        <a class="doi" href="https://doi.org/10.3897/jhr.97.123853">doi:10.3897/jhr.97.123853</a>
+      </li>
+      <li class="lab pre">
+        <span class="loc"><span>Preprint</span><span>2026</span></span>
+        <p class="t">Trait-based specific protection goals for wild pollinators: a staged modelling framework for pesticide risk assessment</p>
+        <p class="a">Topping C, Focks A, <b>Albacete S</b>, Azpiazu C, …</p>
+        <span class="note">Under revision, Environmental Sciences Europe</span>
+        <a class="doi" href="https://doi.org/10.21203/rs.3.rs-10019161/v1">doi:10.21203/rs.3.rs-10019161/v1</a>
+      </li>
+    </ol>
+    <div class="more">
+      <a href="https://scholar.google.es/citations?user=G5mxJu8AAAAJ&amp;hl=en">All papers on Google Scholar</a>
+      <a href="https://orcid.org/0000-0001-7696-623X">ORCID 0000-0001-7696-623X</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS / TALKS -->
+<section class="work" id="projects">
+  <div class="wrap">
+    <article class="bloom" id="beyond-bloom">
+      <div class="bloom-main">
+        <img class="bloom-mark" src="img/bloom-mark.png" alt="Beyond bloom logo: an outlined fruit blossom dropping a petal, next to a bee">
+        <h2>Beyond bloom</h2>
+        <p class="bloom-lede">Insecticide applications are restricted during crop bloom but authorised at petal fall, once fruit trees have finished flowering. Beekeepers remove their hives, but wild pollinators remain, and wildflowers in and around the orchard are still in bloom. Beyond bloom asks how these applications affect them.</p>
+        <ol class="aims">
+          <li><div><b>Measure the effect</b>Pollinator visitation and community composition before and after application in paired treated–control orchards, and pollination service measured as stigma pollen deposition.</div></li>
+          <li><div><b>Trace the exposure</b>Insecticide residues in sentinel plants placed 0, 5 and 10 m from the orchard edge.</div></li>
+          <li><div><b>Change practice</b>Standardised monitoring protocols co-developed with young people, and guidance for producers and regulators on the timing of late-bloom applications.</div></li>
+        </ol>
+      </div>
+      <figure class="bloom-photo">
+        <img src="img/bloom-sampling.jpg" alt="A researcher with a hand net sampling pollinators on the grass beside an orchard row, with pots of pink and purple flowering plants in the foreground" loading="lazy"><span class="credit">© Sergio Albacete</span>
+      </figure>
+      <div class="bloom-meta">
+        <span class="fund-line">I lead this project with support from the European Fund for Youth Action on Pollinators (IUCN SOS).</span>
+        <a href="https://iucnsos.org/projects/beyond-bloom-impacts-of-authorized-insecticide-applications-during-crop-petal-fall-on-wild-pollinator-communities-spain/">Project page</a>
+      </div>
+    </article>
+  </div>
+  <div class="wrap grid">
+    <div>
+      <h2>Also working on</h2>
+      <div class="proj">
+        <h3>PollinERA</h3><span class="role">Postdoc</span>
+        <p>Moving EU pesticide risk assessment from single substances tested on honey bees to a systems-based assessment of insect pollinators. Partners include Aarhus and Lund Universities.</p>
+        <span class="fund">Horizon Europe, grant 101135005 · 2024–27 · <a href="https://pollinera-horizon.eu/">Project page</a></span>
+      </div>
+      <div class="proj">
+        <h3>PollinEat</h3><span class="role">Project officer</span>
+        <p>Estimating pollen and nectar consumption by adults and larvae of bumblebees and solitary bees, to improve oral exposure estimates in risk assessment. With CREAF and Biobest.</p>
+        <span class="fund">EFSA, OC/EFSA/PREV/2023/03 · 2025–26 · <a href="https://www.creaf.cat/es/investigacion/directorio-de-investigacionestimacion-de-consumo-de-alimento-en-abejas">Project page</a></span>
+      </div>
+      <div class="proj">
+        <h3>HOTBEE</h3><span class="role">Postdoc</span>
+        <p>Solitary bees under climate change: effects of warming, alone and combined with nutritional stress and pesticide exposure, on phenology, reproductive success and population dynamics. Led by Jordi Bosch and Anselm Rodrigo at CREAF.</p>
+        <span class="fund">Spanish Ministry of Science, Innovation and Universities · 2026–29 · <a href="https://www.creaf.cat/en/research/research-directory/hotbee">Project page</a></span>
+      </div>
+      <div class="side students">
+        <h3>Students</h3>
+        <p class="sub">In progress</p>
+        <ul class="list">
+          <li>A. Hernández · PhD<small>Autonomous University of Barcelona · with J. Bosch · 2025–29</small></li>
+          <li>L. Usuelli · MSc<small>University of Milan · with J. Bosch, P. Biella · 2026–27</small></li>
+          <li>M. Mislej · MSc<small>University of Bologna · with F. Sgolastra, L. Cabiddu · 2026–27</small></li>
+        </ul>
+        <p class="sub">Completed</p>
+        <ul class="list">
+          <li>L. Signoroni · MSc<small>University of Milan · with J. Bosch, F. Sgolastra, P. Biella · 2026</small></li>
+          <li>D. J. Pamulaklakin · MSc<small>University of Bologna · with F. Sgolastra, R. Tadei, R. Girodo · 2026</small></li>
+          <li>A. Cavallini · MSc<small>University of Bologna · with F. Sgolastra, L. del Arco, L. Cabiddu · 2025</small></li>
+          <li>F. Mastroberti · BSc<small>University of Bologna · with F. Sgolastra, L. Cabiddu, L. del Arco · 2025</small></li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <div class="side">
+        <h3>Conferences</h3>
+        <ul class="list">
+          <li>Beyond bloom: impacts of authorized insecticide applications during crop petal fall on wild pollinator communities<small>Poster · EurBee 11 · Bologna 2026 · Hernández-Márquez A, … <b>Albacete S</b></small></li>
+          <li>Comparing lethal and sublethal endpoints in two bee species exposed to flupyradifurone<small>Talk · EurBee 11 · Bologna 2026 · Tadei R, <b>Albacete S</b>, … Sgolastra F</small></li>
+          <li>Pollen composition of larval food provisions affects development and adult insecticide sensitivity in a polylectic solitary bee<small>Talk · EurBee 11 · Bologna 2026 · García-Gómez A, Ciot L, <b>Albacete S</b>, … Bosch J</small></li>
+          <li>Exposure to realistic levels of pesticide mixtures affect nesting performance, longevity, and reproductive success in a solitary bee<small>Talk · XII European Congress of Entomology · Heraklion 2023 · <b>Albacete S</b>, Sancho G, Azpiazu C, … Bosch J</small></li>
+          <li>Bees exposed to climate change are more sensitive to pesticides<small>Talk · XII National Congress of Applied Entomology (SEEA) · Málaga 2022 · <b>Albacete S</b>, Sancho G, Azpiazu C, … Bosch J</small></li>
+        </ul>
+      </div>
+      <div class="pair">
+        <figure><img src="img/bumblebee.jpg" alt="A bumblebee with an orange thorax and pollen loads on its hind legs, foraging on pink sainfoin flowers" loading="lazy" style="object-position:40% 50%"><span class="credit">© Sergio Albacete</span></figure>
+        <figure><img src="img/brimstone.jpg" alt="A pale green brimstone butterfly feeding on purple alfalfa flowers" loading="lazy" style="object-position:50% 50%"><span class="credit">© Sergio Albacete</span></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="grid">
+      <div class="hole"><img src="img/portrait.jpg" alt="Portrait of Sergio Albacete in an apple orchard" loading="lazy"><span class="credit below">© Galdric Mossoll / CREAF</span></div>
+      <div>
+        <h2>Let's talk!</h2>
+        <div class="email">
+          <code id="email">sergio.albacete@unibo.it</code>
+          <button type="button" id="copy-email">Copy</button>
+        </div>
+        <p class="addr">Department of Agricultural and Food Sciences (DISTAL), University of Bologna, Italy</p>
+        <div class="links">
+          <a href="https://scholar.google.es/citations?user=G5mxJu8AAAAJ&amp;hl=en">Google Scholar</a>
+          <a href="https://orcid.org/0000-0001-7696-623X">ORCID</a>
+          <a href="https://www.unibo.it/sitoweb/sergio.albacete/en">University profile</a>
+        </div>
+      </div>
+    </div>
+    <footer><span>leg. S. Albacete</span><span>Last updated October 2026</span></footer>
+  </div>
+</section>
+
+<script>
+(function(){
+  var btn=document.getElementById('copy-email'), el=document.getElementById('email');
+  btn.addEventListener('click',function(){
+    var done=function(){btn.textContent='Copied';setTimeout(function(){btn.textContent='Copy'},1600)};
+    var fallback=function(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Selected';};
+    try{navigator.clipboard.writeText(el.textContent).then(done,fallback)}catch(e){fallback()}
+  });
+  var box=document.querySelector('.photo-swap'), bp=document.getElementById('swap-photo'), bs=document.getElementById('swap-setup');
+  function show(setup){
+    box.querySelectorAll('.v-photo').forEach(function(e){e.hidden=setup}); box.querySelectorAll('.v-setup').forEach(function(e){e.hidden=!setup});
+    bp.setAttribute('aria-pressed',String(!setup)); bs.setAttribute('aria-pressed',String(setup));
+  }
+  bp.addEventListener('click',function(){show(false)});
+  bs.addEventListener('click',function(){show(true)});
+})();
+</script>
+</body>
+</html>
